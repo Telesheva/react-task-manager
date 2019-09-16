@@ -1,0 +1,26 @@
+.Button {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.Button:hover {
+    cursor: pointer;
+}
+
+.Button:focus {
+    outline: none;
+}
+
+.add-task-btn {
+    width: 70px;
+    height: 70px;
+    background-color: #e3f2fd;
+    border-radius: 50%;
+    color: #6a3bcc;
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+    border: 1px solid #17a3f4;
+}

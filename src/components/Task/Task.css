@@ -1,0 +1,56 @@
+.card {
+    margin: 20px 30px 20px 0;
+    width: 350px;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.5);
+    max-width: 400px !important;
+}
+
+.card-header {
+    background-color: #6a3bcc;
+    color: #e3f2fd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-header img {
+    padding: 0 5px 0 5px;
+}
+
+.card-header img:hover, .dropdown:hover {
+    cursor: pointer;
+}
+
+.card-header span {
+    flex-grow: 3;
+}
+
+.dropdown-toggle::after {
+    visibility: hidden !important;
+}
+
+.dropdown {
+    width: 32px;
+    height: 25px;
+}
+
+.dropdown-menu {
+    top: -15px !important;
+}
+
+.dropdown-link {
+    color: rgba(7,7,7,0.85);
+}
+
+.dropdown-link-item {
+    background-color: white !important;
+}
+
+.dropdown-link-item:hover {
+    background-color: #f8f9fa !important;
+}
+
+.dropdown-link:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,0.85);
+    opacity: .7;
+}
