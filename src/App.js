@@ -3,7 +3,7 @@ import './App.css';
 import {Route, Switch, withRouter} from 'react-router-dom';
 import Layout from "./hoc/Layout/Layout";
 import {connect} from 'react-redux';
-import TaskPage from "./containers/TaskPage/TaskPage";
+import TaskPage from "./components/TaskPage/TaskPage";
 import TaskCreator from "./components/TaskCreator/TaskCreator";
 import TaskEditor from "./components/TaskEditor/TaskEditor";
 

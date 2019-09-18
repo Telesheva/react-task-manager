@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
-import TaskList from "../../components/TaskList/TaskList";
+import React from 'react';
+import TaskList from "../TaskList/TaskList";
 
-class TaskPage extends Component {
-    render() {
+const TaskPage = props => {
         return (
             <div className="TaskPage">
                 <TaskList/>
             </div>
         )
-    }
-}
+};
 
 export default TaskPage;

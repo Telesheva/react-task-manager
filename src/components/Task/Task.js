@@ -45,7 +45,7 @@ const Task = props => {
             </CardHeader>
             <CardBody>
                 <CardTitle>
-                    Task {props.index + 1}
+                    Task {props.id}
                 </CardTitle>
                 <p>{props.task}</p>
             </CardBody>

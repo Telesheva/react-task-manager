@@ -16,7 +16,9 @@
     box-shadow: 1px 1px 9px 0 rgba(0, 0, 0, .5);
     width: 500px;
     height: auto;
-    margin: 20px 0 0 34%;
+    position: absolute;
+    top: 37%;
+    left: 37%;
 }
 
 .create-input {
