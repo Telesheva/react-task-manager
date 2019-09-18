@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
 import TaskList from "../../components/TaskList/TaskList";
 
 class TaskPage extends Component {
@@ -12,16 +11,4 @@ class TaskPage extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        addTask: () => dispatch(addTask())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaskPage);
+export default TaskPage;
