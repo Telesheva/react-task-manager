@@ -1,7 +1,14 @@
 import {ADD_TASK} from "../actions/actionTypes";
 
 const initialState = {
-    tasks: []
+    tasks:
+        [
+            {
+                id: 1,
+                taskTitle: 'Home',
+                task: 'Clean the room because quests will come tomorrow! It is important!'
+            }
+        ]
 };
 
 export default function createReducer(state = initialState, action) {

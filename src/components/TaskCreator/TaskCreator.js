@@ -4,6 +4,7 @@ import withTaskForm from "../../hoc/withTaskForm/withTaskForm";
 import { Button } from 'shards-react';
 import {addTask} from "../../store/actions/create";
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
+import {Alert} from "antd";
 
 const TaskCreator = props => {
     const {tasks} = useSelector(state => state.create, shallowEqual);
@@ -25,9 +26,19 @@ const TaskCreator = props => {
                         setIsCreated(!isCreated)
                     },
                         [dispatch])}
+                    disabled={isCreated}
                 >
                     { !isCreated ? <span>Create task</span> : <span>Task is created!</span> }
                 </Button>
+            {
+                isCreated ?
+                    <Alert
+                        message="New task was created successfully!"
+                        type="success"
+                        className="alert-success alert align-content-between"
+                    />
+                : null
+            }
         </div>
     )
 };

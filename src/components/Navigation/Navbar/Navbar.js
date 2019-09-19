@@ -2,9 +2,9 @@ import React from 'react';
 import './Navbar.css';
 import {Link} from "react-router-dom";
 import logout from '../../../images/logout.png';
-import create from '../../../images/pen.png';
+import create from '../../../images/create.png';
 
-const Navbar = props => {
+const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to={{pathname: `/`}} className="navbar-brand">Task Manager</Link>
@@ -15,10 +15,12 @@ const Navbar = props => {
                     Create
                 </label>
                 </Link>
+                <Link to={'/'} className="logout-link">
                 <label className="logout-label">
                     <img src={logout} alt="logout-icon"/>
                     Log out
                 </label>
+                </Link>
             </div>
         </nav>
     )

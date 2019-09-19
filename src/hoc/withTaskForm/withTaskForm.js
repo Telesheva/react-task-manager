@@ -6,8 +6,8 @@ const withTaskForm = (Task, title) => {
     return () => {
         return (
             <div className="task-form">
-                <h2 className="form-title">{ title }</h2>
                 <form className="form-creator">
+                    <h2 className="form-title">{ title }</h2>
                     <FormInput
                         size="sm"
                         placeholder="Task Title"

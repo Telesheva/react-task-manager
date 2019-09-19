@@ -1,22 +1,32 @@
 .navbar {
     background-color: #17a3f4 !important;
     font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
 }
+
 .navbar-brand {
     flex-grow: 100;
     color: white !important;
-    font-size: 25px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
 }
 
-.logout-label img {
+.logout-label img, .create-label img {
     margin: 0 5px 0 10px;
 }
+
 .logout-label, .create-label {
     margin: 0;
 }
+
 .logout-label:hover, .create-label:hover {
     cursor: pointer;
 }
-.create-link {
-    color: #212529;
+
+.create-link, .logout-link {
+  color: #ffffff;
 }

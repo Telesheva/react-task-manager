@@ -1,7 +1,7 @@
 import React from 'react';
 import TaskList from "../TaskList/TaskList";
 
-const TaskPage = props => {
+const TaskPage = () => {
         return (
             <div className="TaskPage">
                 <TaskList/>

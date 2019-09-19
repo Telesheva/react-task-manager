@@ -1,32 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Layout.css';
-import connect from "react-redux/es/connect/connect";
 import Navbar from "../../components/Navigation/Navbar/Navbar";
 
-class Layout extends Component {
-    render() {
-        return (
+const Layout = props => {
+    return (
         <div className="Layout">
             <Navbar/>
-          <main>
-              { this.props.children }
-          </main>
+            <main>
+                {props.children}
+            </main>
         </div>
-        )
-    }
-}
+    )
+};
 
-function mapStateToProps(state) {
-    return {
-
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default Layout;
 

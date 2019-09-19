@@ -9,50 +9,25 @@ import {
 } from "shards-react";
 //import star from '../../images/star.png';
 import outlineStar from '../../images/outline-star.png';
-import more from "../.././images/more.png";
-import {Dropdown} from "react-bootstrap";
+import DropdownMenu from "../UI/DropdownMenu/DropdownMenu";
+import divWithClassName from "react-bootstrap/utils/divWithClassName";
+
 
 const Task = props => {
     return (
-        <Card style={{maxWidth: "300px"}}>
-            <CardHeader>
-                <span>Task:</span>
-                <img src={outlineStar} alt="outline-star"/>
-                <Dropdown>
-                    <Dropdown.Toggle id="dropdown-custom-2"
-                    as="div">
-                    <div className="more-dropdown"><img src={more} alt="more-btn"/></div>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item
-                            href={'/edit'}
-                            className="dropdown-link-item"
-                        >
-                            <span className="dropdown-link">
-                            Edit task
-                            </span>
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                            href={'/'}
-                            className="dropdown-link-item"
-                        >
-                            <span className="dropdown-link">
-                            Delete task
-                            </span>
-                        </Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-            </CardHeader>
-            <CardBody>
-                <CardTitle>
-                    Task {props.id}
-                </CardTitle>
-                <p>{props.task}</p>
-            </CardBody>
-            <CardFooter>
-                Card footer
-            </CardFooter>
-        </Card>
+        <div className="Task">
+            <div className="task-header">
+                <span className="task-title">{props.taskTitle}</span>
+                <img src={outlineStar} alt="outline-star" className="star-img"/>
+                <DropdownMenu/>
+            </div>
+            <div className="task-body">
+                <span className="card-desc">{props.task}</span>
+            </div>
+            <div className="task-footer">
+                Date: <span>19.09.2019</span>
+            </div>
+        </div>
     );
 };
 

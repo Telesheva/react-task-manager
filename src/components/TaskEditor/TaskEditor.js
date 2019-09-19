@@ -3,9 +3,9 @@ import './TaskEditor.css';
 import withTaskForm from "../../hoc/withTaskForm/withTaskForm";
 import { Button } from 'shards-react';
 
-const TaskEditor = props => {
+const TaskEditor = () => {
     return (
-            <Button theme="primary">Save changes</Button>
+            <Button theme="primary" className="save-btn">Save changes</Button>
     )
 };
 

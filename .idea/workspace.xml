@@ -2,18 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76ee361a-cc2d-4d96-963c-5c2a5d8e7ed4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/UI/DropdownMenu/DropdownMenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/DropdownMenu/DropdownMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navbar/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navbar/Navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TaskList/TaskList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskList/TaskList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskList/TaskList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskList/TaskList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskPage/TaskPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskPage/TaskPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/Button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Button/Button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Button/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/DropMenu/DropMenu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/DropMenu/DropMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/Input.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/Input.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/Layout/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/Layout/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/withTaskForm/withTaskForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withTaskForm/withTaskForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hoc/withTaskForm/withTaskFrom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withTaskForm/withTaskFrom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/logout.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/logout.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/more.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/more.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/outline-star.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/outline-star.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/pen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/star.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -84,6 +101,7 @@
       <workItem from="1568112260331" duration="9914000" />
       <workItem from="1568639580323" duration="448000" />
       <workItem from="1568733830557" duration="21590000" />
+      <workItem from="1568891078376" duration="16427000" />
     </task>
     <servers />
   </component>
@@ -104,7 +122,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

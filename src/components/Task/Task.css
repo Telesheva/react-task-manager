@@ -1,27 +1,64 @@
-.card {
+.Task {
     margin: 20px 30px 20px 0;
-    width: 350px;
-    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.5);
+    width: 300px;
+    height: 135px;
+    box-shadow: 1px 1px 9px 0 rgba(0, 0, 0, .5);
     max-width: 400px !important;
-}
-
-.card-header {
-    background-color: #6a3bcc;
-    color: #e3f2fd;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
-.card-header img {
-    padding: 0 5px 0 5px;
-}
-
-.card-header img:hover, .dropdown:hover {
+.Task:hover {
+    box-shadow: 2px 3px 20px #a87de9;
     cursor: pointer;
 }
 
-.card-header span {
-    flex-grow: 3;
+.task-header {
+    background-color: #6a3bcc;
+    display: flex;
+    justify-content: space-around;
+    height: 35px;
+}
+
+.task-header span {
+    flex-grow: 2;
+}
+
+.task-title {
+    padding: 11px 0 0 10px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+    color: #ffffff;
+}
+
+.task-body {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.card-desc {
+    width: 200px;
+    word-wrap: break-word;
+}
+
+.task-footer {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 9px;
+    padding: 0 10px 10px 200px;
+
+    bottom: 0;
+}
+
+.star-img {
+    padding: 8px;
+}
+
+.task-header img:hover, .dropdown:hover {
+    cursor: pointer;
 }
 
 .dropdown-toggle::after {
@@ -29,16 +66,18 @@
 }
 
 .dropdown {
-    width: 32px;
+    width: 24px;
     height: 25px;
+    padding-right: 30px;
+}
+
+.dropdown-link {
+    color: rgba(7, 7, 7, 0.85);
 }
 
 .dropdown-menu {
     top: -15px !important;
-}
-
-.dropdown-link {
-    color: rgba(7,7,7,0.85);
+    box-shadow: 1px 1px 9px 0 rgba(0, 0, 0, .5);
 }
 
 .dropdown-link-item {
@@ -51,6 +90,10 @@
 
 .dropdown-link:hover {
     text-decoration: none;
-    color: rgba(0,0,0,0.85);
+    color: rgba(0, 0, 0, 0.85);
     opacity: .7;
+}
+
+.more-dropdown {
+    margin: 5px 5px 0 0;
 }

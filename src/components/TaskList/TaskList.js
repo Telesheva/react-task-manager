@@ -20,6 +20,7 @@ const TaskList = props => {
                             >
                                 <Task
                                     id={el.id}
+                                    taskTitle={el.taskTitle}
                                     task={el.task}
                                     key={index}
                                 />
