@@ -3,11 +3,10 @@ import './TaskCreator.css';
 import withTaskForm from "../../hoc/withTaskForm/withTaskForm";
 import { Button } from 'shards-react';
 import {addTask} from "../../store/actions/create";
-import {shallowEqual, useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Alert} from "antd";
 
-const TaskCreator = props => {
-    const {tasks} = useSelector(state => state.create, shallowEqual);
+const TaskCreator = () => {
     const [isCreated, setIsCreated] = useState(false);
     const dispatch = useDispatch();
     return (

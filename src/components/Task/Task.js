@@ -1,16 +1,8 @@
 import React from 'react';
 import './Task.css';
-import {
-    Card,
-    CardHeader,
-    CardTitle,
-    CardBody,
-    CardFooter
-} from "shards-react";
 //import star from '../../images/star.png';
 import outlineStar from '../../images/outline-star.png';
 import DropdownMenu from "../UI/DropdownMenu/DropdownMenu";
-import divWithClassName from "react-bootstrap/utils/divWithClassName";
 
 
 const Task = props => {
