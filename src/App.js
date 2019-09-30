@@ -13,7 +13,7 @@ class App extends Component {
             <Switch>
                 <Route path="/" exact component={TaskPage}/>
                 <Route path="/create" component={TaskCreator}/>
-                <Route path="/edit" component={TaskEditor}/>
+                <Route path="/edit/:id" component={TaskEditor}/>
                 <Route render={() => <h1 style={{color: 'red', textAlign: 'center', marginTop: 50}}>404 not found</h1>}/>
             </Switch>
         );

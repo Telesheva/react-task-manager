@@ -8,7 +8,8 @@ import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 const TaskList = props => {
-    const {tasks} = useSelector(state => state.create);
+    const {tasks} = useSelector(state => state.task);
+    console.log(tasks);
     return (
         <div>
             <div className="container">
@@ -22,6 +23,7 @@ const TaskList = props => {
                                     id={el.id}
                                     taskTitle={el.taskTitle}
                                     task={el.task}
+                                    date={el.date}
                                     key={index}
                                 />
                             </Grid>

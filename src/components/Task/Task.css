@@ -1,7 +1,7 @@
 .Task {
-    margin: 20px 30px 20px 0;
-    width: 300px;
-    height: 135px;
+    margin: 40px 50px 20px 0;
+    width: 350px;
+    height: 200px;
     box-shadow: 1px 1px 9px 0 rgba(0, 0, 0, .5);
     max-width: 400px !important;
     display: flex;
@@ -22,6 +22,7 @@
 
 .task-header span {
     flex-grow: 2;
+    font-size: 18px;
 }
 
 .task-title {
@@ -41,15 +42,15 @@
 .card-desc {
     width: 200px;
     word-wrap: break-word;
+    font-size: 20px;
 }
 
 .task-footer {
     font-style: normal;
     font-weight: normal;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 9px;
-    padding: 0 10px 10px 200px;
-
+    padding: 0 10px 10px 240px;
     bottom: 0;
 }
 
@@ -59,41 +60,4 @@
 
 .task-header img:hover, .dropdown:hover {
     cursor: pointer;
-}
-
-.dropdown-toggle::after {
-    visibility: hidden !important;
-}
-
-.dropdown {
-    width: 24px;
-    height: 25px;
-    padding-right: 30px;
-}
-
-.dropdown-link {
-    color: rgba(7, 7, 7, 0.85);
-}
-
-.dropdown-menu {
-    top: -15px !important;
-    box-shadow: 1px 1px 9px 0 rgba(0, 0, 0, .5);
-}
-
-.dropdown-link-item {
-    background-color: white !important;
-}
-
-.dropdown-link-item:hover {
-    background-color: #f8f9fa !important;
-}
-
-.dropdown-link:hover {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.85);
-    opacity: .7;
-}
-
-.more-dropdown {
-    margin: 5px 5px 0 0;
 }

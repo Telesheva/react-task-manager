@@ -11,13 +11,15 @@ const Task = props => {
             <div className="task-header">
                 <span className="task-title">{props.taskTitle}</span>
                 <img src={outlineStar} alt="outline-star" className="star-img"/>
-                <DropdownMenu/>
+                <DropdownMenu
+                    id={props.id}
+                />
             </div>
             <div className="task-body">
                 <span className="card-desc">{props.task}</span>
             </div>
             <div className="task-footer">
-                Date: <span>19.09.2019</span>
+                Date: <span>{props.date}</span>
             </div>
         </div>
     );

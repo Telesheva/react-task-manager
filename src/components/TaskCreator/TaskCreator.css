@@ -81,4 +81,10 @@ input:checked + .slider:before {
 
 .alert {
     margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.anticon:hover {
+    cursor: pointer;
 }
