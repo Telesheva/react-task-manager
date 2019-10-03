@@ -1,6 +1,5 @@
 import React from 'react';
 import './TaskEditor.css';
-import withTaskForm from "../../hoc/withTaskForm/withTaskForm";
 import { Button } from 'shards-react';
 
 const TaskEditor = () => {
@@ -9,4 +8,4 @@ const TaskEditor = () => {
     )
 };
 
-export default withTaskForm(TaskEditor, "Now you can edit the task");
+export default TaskEditor;

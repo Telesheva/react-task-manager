@@ -8,6 +8,10 @@
     margin: 0 0 10px 10px;
 }
 
+.create-input {
+    margin: 15px 0 15px 0;
+}
+
 .favorites-checkbox {
     display: flex;
 }
@@ -18,7 +22,6 @@
     cursor: default;
 }
 
-/* The switch - the box around the slider */
 .switch {
     position: relative;
     display: inline-block;
@@ -69,7 +72,6 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
     background-color: #e3f2fd;
@@ -77,14 +79,4 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
-}
-
-.alert {
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.anticon:hover {
-    cursor: pointer;
 }

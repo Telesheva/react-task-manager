@@ -3,10 +3,14 @@ import './Task.css';
 //import star from '../../images/star.png';
 import outlineStar from '../../images/outline-star.png';
 import DropdownMenu from "../UI/DropdownMenu/DropdownMenu";
+import {Context} from "../../context";
 
 
 const Task = props => {
     return (
+        <Context.Provider value={{
+            id: props.id
+        }}>
         <div className="Task">
             <div className="task-header">
                 <span className="task-title">{props.taskTitle}</span>
@@ -22,6 +26,7 @@ const Task = props => {
                 Date: <span>{props.date}</span>
             </div>
         </div>
+        </Context.Provider>
     );
 };
 

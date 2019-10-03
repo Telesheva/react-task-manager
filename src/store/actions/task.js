@@ -24,10 +24,9 @@ export function addTask(task) {
     }
 }
 
-export function deleteTask(id, tasks) {
-    return async dispatch => {
-        const newTasks = tasks.filter(taskItem => taskItem.id !== id);
-        console.log(newTasks);
+export function deleteTask(id) {
+    return async (dispatch, getState) => {
+        const newTasks = getState().task.tasks.filter(taskItem => taskItem.id !== id);
         dispatch(fetchDeleteSuccess(newTasks));
     }
 }

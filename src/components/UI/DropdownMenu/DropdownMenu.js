@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './DropdownMenu.css';
 import more from '../../../images/more.png';
 import {Dropdown} from "react-bootstrap";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {deleteTask} from "../../../store/actions/task";
+import {Context} from "../../../context";
 
-const DropdownMenu = props => {
+const DropdownMenu = () => {
         const dispatch = useDispatch();
-        const {tasks} = useSelector(state => state.task);
+        const {id} = useContext(Context);
     return (
         <Dropdown>
             <Dropdown.Toggle
@@ -26,9 +27,11 @@ const DropdownMenu = props => {
                             </span>
                     </Dropdown.Item>
                     <Dropdown.Item
-                        href={'/'}
                         className="dropdown-link-item"
-                        onClick={() => dispatch(deleteTask(props.id, tasks))}
+                        onClick={() => {
+                                dispatch(deleteTask(id));
+                                console.log(id);
+                        }}
                     >
                             <span className="dropdown-link">
                             Delete task

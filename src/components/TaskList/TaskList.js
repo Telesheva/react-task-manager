@@ -7,7 +7,7 @@ import plusIcon from '../../images/plus.png';
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 
-const TaskList = props => {
+const TaskList = () => {
     const {tasks} = useSelector(state => state.task);
     console.log(tasks);
     return (

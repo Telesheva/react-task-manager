@@ -14,3 +14,7 @@
     width: 500px;
     height: auto;
 }
+
+.is-invalid {
+    background-image: none !important;
+}

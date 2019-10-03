@@ -1,7 +1,7 @@
 import React from 'react';
-import './withForm.css';
+import './WithForm.css';
 
-const withForm = props => {
+const WithForm = props => {
     return (
         <div className="task-form">
             <form className="form-creator">
@@ -11,4 +11,4 @@ const withForm = props => {
     )
 };
 
-export default withForm;
+export default WithForm;
