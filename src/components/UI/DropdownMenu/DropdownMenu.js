@@ -8,7 +8,8 @@ import {Context} from "../../../context";
 
 const DropdownMenu = () => {
         const dispatch = useDispatch();
-        const {id} = useContext(Context);
+        const {id, title, task} = useContext(Context);
+        console.log(title, task);
     return (
         <Dropdown>
             <Dropdown.Toggle
@@ -19,7 +20,7 @@ const DropdownMenu = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
                     <Dropdown.Item
-                        href={'/edit'}
+                        href={`/edit/${id}`}
                         className="dropdown-link-item"
                     >
                             <span className="dropdown-link">

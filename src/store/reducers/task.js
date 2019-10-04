@@ -1,7 +1,13 @@
-import {ADD_TASK, FETCH_DELETE_SUCCESS} from "../actions/actionTypes";
+import {ADD_TASK, CHANGE_TITLE, FETCH_NEW_STATE} from "../actions/actionTypes";
+import moment from "moment";
 
 const initialState = {
-    tasks: []
+    tasks: [{
+        id: '192938',
+        taskTitle: 'Home',
+        task: 'Clean the room!',
+        date: moment(Date.now()).format('ll')
+    }]
 };
 
 export default function taskReducer(state = initialState, action) {
@@ -11,7 +17,7 @@ export default function taskReducer(state = initialState, action) {
                 ...state,
                 tasks: [...state.tasks, action.task]
             };
-        case FETCH_DELETE_SUCCESS:
+        case FETCH_NEW_STATE:
             return {
               ...state, tasks: action.newTasks
             };

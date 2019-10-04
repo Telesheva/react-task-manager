@@ -9,15 +9,15 @@ import {Context} from "../../context";
 const Task = props => {
     return (
         <Context.Provider value={{
-            id: props.id
+            id: props.id,
+            title: props.taskTitle,
+            task: props.task
         }}>
         <div className="Task">
             <div className="task-header">
                 <span className="task-title">{props.taskTitle}</span>
                 <img src={outlineStar} alt="outline-star" className="star-img"/>
-                <DropdownMenu
-                    id={props.id}
-                />
+                <DropdownMenu/>
             </div>
             <div className="task-body">
                 <span className="card-desc">{props.task}</span>

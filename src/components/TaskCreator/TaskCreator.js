@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import uuidv1 from 'uuid/v1';
 import './TaskCreator.css';
 import WithForm from "../../hoc/WithForm/WithForm";
 import {Button, FormInput, FormTextarea} from 'shards-react';
@@ -9,9 +10,12 @@ import {Redirect, withRouter} from "react-router";
 
 const TaskCreator = () => {
     const [isCreated, setIsCreated] = useState(false);
+
     const dispatch = useDispatch();
+
     const [title, setTitle] = useState('');
     const [task, setTask] = useState('');
+
     const [validTitle, setValidTitle] = useState(false);
     const [validTask, setValidTask] = useState(false);
 
@@ -51,14 +55,12 @@ const TaskCreator = () => {
                 <Button
                     theme="primary"
                     onClick={() => {
-                        if (validTitle && validTask) {
                             dispatch(addTask({
-                                id: Math.random(),
+                                id: uuidv1(),
                                 taskTitle: title,
                                 task,
                                 date: moment(Date.now()).format('ll')
-                            }))
-                        }
+                            }));
                         setIsCreated(!isCreated);
                     }}
                     disabled={!validTitle || !validTask}
