@@ -1,4 +1,4 @@
-import {ADD_TASK, ADD_TO_FAVORITES, FETCH_NEW_STATE, REMOVE_FROM_FAVORITES} from "../actions/actionTypes";
+import {ADD_TASK, FETCH_NEW_STATE} from "../actions/actionTypes";
 import moment from "moment";
 
 const initialState = {

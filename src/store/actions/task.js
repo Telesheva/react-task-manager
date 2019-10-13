@@ -3,10 +3,12 @@ import {
     FETCH_TASKS_START,
     FETCH_ALL_TASKS,
     FETCH_TASKS_SUCCESS,
-    FETCH_TASKS_ERROR, ADD_TASK, FETCH_NEW_STATE, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES
+    FETCH_TASKS_ERROR,
+    ADD_TASK,
+    FETCH_NEW_STATE
 } from './actionTypes';
 
-export function fetchTasks() {
+export function fetchTasks(tasks) {
 
 }
 
