@@ -40,6 +40,7 @@ const TaskEditor = props => {
                     task,
                     date: moment(Date.now()).format('ll')
                 }))}
+                disabled={title === '' || task === ''}
             >
                 Save changes
             </Button>

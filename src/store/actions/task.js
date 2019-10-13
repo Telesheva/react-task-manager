@@ -3,7 +3,7 @@ import {
     FETCH_TASKS_START,
     FETCH_ALL_TASKS,
     FETCH_TASKS_SUCCESS,
-    FETCH_TASKS_ERROR, ADD_TASK, FETCH_NEW_STATE, CHANGE_TITLE, CHANGE_TASK
+    FETCH_TASKS_ERROR, ADD_TASK, FETCH_NEW_STATE, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES
 } from './actionTypes';
 
 export function fetchTasks() {
@@ -18,9 +18,20 @@ export function fetchNewState(newTasks) {
 }
 
 export function addTask(task) {
+    localStorage.setItem('task', JSON.stringify(task));
+    console.log(task);
     return {
         type: ADD_TASK,
         task
+    };
+}
+
+export function toggleFavorites(id, isFavorite) {
+    return async (dispatch, getState) => {
+        const newTasks = getState().task.tasks;
+        let task = newTasks.find(task => task.id === id);
+        task.isFavorite = isFavorite;
+        dispatch(fetchNewState(newTasks));
     }
 }
 
@@ -34,9 +45,9 @@ export function deleteTask(id) {
 export function editTaskSuccess(id, editedTask) {
     return async (dispatch, getState) => {
         const newTasks = getState().task.tasks;
-        let task = getState().task.tasks.find(task => task.id === id);
+        let task = newTasks.find(task => task.id === id);
         task = editedTask;
-        console.log(editedTask);
+        console.log(task);
         dispatch(fetchNewState(newTasks));
     }
 }

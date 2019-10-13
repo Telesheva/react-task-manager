@@ -8,8 +8,7 @@ import {Context} from "../../../context";
 
 const DropdownMenu = () => {
         const dispatch = useDispatch();
-        const {id, title, task} = useContext(Context);
-        console.log(title, task);
+        const {id} = useContext(Context);
     return (
         <Dropdown>
             <Dropdown.Toggle
@@ -29,10 +28,7 @@ const DropdownMenu = () => {
                     </Dropdown.Item>
                     <Dropdown.Item
                         className="dropdown-link-item"
-                        onClick={() => {
-                                dispatch(deleteTask(id));
-                                console.log(id);
-                        }}
+                        onClick={() => dispatch(deleteTask(id))}
                     >
                             <span className="dropdown-link">
                             Delete task

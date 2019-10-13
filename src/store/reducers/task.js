@@ -1,4 +1,4 @@
-import {ADD_TASK, CHANGE_TITLE, FETCH_NEW_STATE} from "../actions/actionTypes";
+import {ADD_TASK, ADD_TO_FAVORITES, FETCH_NEW_STATE, REMOVE_FROM_FAVORITES} from "../actions/actionTypes";
 import moment from "moment";
 
 const initialState = {
@@ -6,7 +6,8 @@ const initialState = {
         id: '192938',
         taskTitle: 'Home',
         task: 'Clean the room!',
-        date: moment(Date.now()).format('ll')
+        date: moment(Date.now()).format('ll'),
+        isFavorite: true
     }]
 };
 

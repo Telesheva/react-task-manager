@@ -3,16 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="76ee361a-cc2d-4d96-963c-5c2a5d8e7ed4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskList/TaskList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskList/TaskList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UI/DropdownMenu/DropdownMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/DropdownMenu/DropdownMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +94,8 @@
       <workItem from="1568891078376" duration="44150000" />
       <workItem from="1569846957883" duration="2583000" />
       <workItem from="1569942607708" duration="29900000" />
+      <workItem from="1570392829472" duration="2299000" />
+      <workItem from="1570879870810" duration="11551000" />
     </task>
     <task id="LOCAL-00001" summary="+ normal cards, icons, alert, disabled button">
       <created>1568915961969</created>

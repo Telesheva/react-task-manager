@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Task from "../../components/Task/Task";
 import './TaskList.css';
 import Grid from "../UI/Grid/Grid";
@@ -9,7 +9,9 @@ import {useSelector} from "react-redux";
 
 const TaskList = () => {
     const {tasks} = useSelector(state => state.task);
-    console.log(tasks);
+    useEffect(() => {
+       console.log('Use Effect works!');
+    }, []);
     return (
         <div>
             <div className="container">
@@ -20,10 +22,12 @@ const TaskList = () => {
                                 key={Math.random() + 20}
                             >
                                 <Task
+                                    bla={el}
                                     id={el.id}
                                     taskTitle={el.taskTitle}
                                     task={el.task}
                                     date={el.date}
+                                    isFavorite={el.isFavorite}
                                     key={index}
                                 />
                             </Grid>

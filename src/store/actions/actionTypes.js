@@ -4,6 +4,4 @@ export const FETCH_TASKS_SUCCESS = 'FETCH_TASKS_SUCCESS';
 export const FETCH_TASKS_ERROR = 'FETCH_TASKS_ERROR';
 export const ADD_TASK = 'ADD_TASK';
 export const FETCH_NEW_STATE = 'FETCH_NEW_STATE';
-export const CHANGE_TITLE = 'CHANGE_TITLE';
-export const CHANGE_TASK = 'CHANGE_TASK';
 

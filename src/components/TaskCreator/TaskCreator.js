@@ -10,6 +10,7 @@ import {Redirect, withRouter} from "react-router";
 
 const TaskCreator = () => {
     const [isCreated, setIsCreated] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -48,7 +49,10 @@ const TaskCreator = () => {
                 <div className="favorites-checkbox">
                     <label className="switch">
                         <input type="checkbox"/>
-                        <span className="slider round"/>
+                        <span
+                            className="slider round"
+                            onClick={() => setIsClicked(!isClicked)}
+                        />
                     </label>
                     <span className="add-btn-label">Add to favorites</span>
                 </div>
@@ -59,7 +63,8 @@ const TaskCreator = () => {
                                 id: uuidv1(),
                                 taskTitle: title,
                                 task,
-                                date: moment(Date.now()).format('ll')
+                                date: moment(Date.now()).format('ll'),
+                                isFavorite: isClicked
                             }));
                         setIsCreated(!isCreated);
                     }}
