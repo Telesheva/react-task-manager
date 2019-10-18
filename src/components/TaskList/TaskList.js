@@ -10,11 +10,6 @@ import {useSelector} from "react-redux";
 const TaskList = () => {
     const {tasks} = useSelector(state => state.task);
 
-    useEffect(() => {
-        console.log('Use Effect works!');
-        console.log(tasks);
-    }, []);
-
     return (
         <div className="TaskList">
             {
