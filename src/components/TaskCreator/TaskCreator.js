@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import uuidv1 from 'uuid/v1';
+import is from 'is_js';
 import './TaskCreator.css';
-import WithForm from "../../hoc/WithForm/WithForm";
-import {Button, FormInput, FormTextarea} from 'shards-react';
+import FormContainer from "../../hoc/FormContainer/FormContainer";
+import {Button} from 'shards-react';
 import {addTask} from "../../store/actions/task";
 import {useDispatch} from "react-redux";
 import moment from "moment";
 import {Redirect, withRouter} from "react-router";
+import Input from "../UI/Input/Input";
+import Textarea from "../UI/Textarea/Textarea";
 
 const TaskCreator = () => {
     const [isCreated, setIsCreated] = useState(false);
@@ -14,37 +17,52 @@ const TaskCreator = () => {
 
     const dispatch = useDispatch();
 
-    const [title, setTitle] = useState('');
-    const [task, setTask] = useState('');
+    const [task, setTask] = useState({
+        taskTitle: '',
+        taskBody: '',
+        isFavorite: false
+    });
 
-    const [validTitle, setValidTitle] = useState(false);
-    const [validTask, setValidTask] = useState(false);
+    const [valid, setValid] = useState({
+        validTitle: false,
+        validTask: false
+    });
 
     const onTaskCreated = () => (
         <Redirect to={'/'}/>
     );
 
+    const onCreateButtonHandler = () => {
+        dispatch(addTask({
+            id: uuidv1(),
+            ...task,
+            date: moment(Date.now()).format('ll'),
+            isFavorite: isClicked
+        }));
+        setIsCreated(!isCreated);
+    };
+
     return (
         <div className="TaskCreator">
-            <WithForm>
-                <FormInput
+            <FormContainer>
+                <Input
                     size="sm"
                     placeholder="Task Title"
                     className="create-input"
                     onChange={event => {
-                        setTitle(event.target.value);
-                        setValidTitle(event.target.value);
+                        setTask({...task, taskTitle: event.target.value});
+                        setValid({...valid, validTitle: !(is.empty(event.target.value))});
                     }}
-                    invalid={title === ''}
+                    errorMessage="Task title can't be empty!"
                 />
-                <FormTextarea
+                <Textarea
                     placeholder="Enter your task"
                     className="create-input"
                     onChange={event => {
-                        setTask(event.target.value);
-                        setValidTask(event.target.value);
+                        setTask({...task, taskBody: event.target.value});
+                        setValid({...valid, validTask: !(is.empty(event.target.value))});
                     }}
-                    invalid={task === ''}
+                    errorMessage="Task can't be empty!"
                 />
                 <div className="favorites-checkbox">
                     <label className="switch">
@@ -58,28 +76,13 @@ const TaskCreator = () => {
                 </div>
                 <Button
                     theme="primary"
-                    onClick={() => {
-                            dispatch(addTask({
-                                id: uuidv1(),
-                                taskTitle: title,
-                                task,
-                                date: moment(Date.now()).format('ll'),
-                                isFavorite: isClicked
-                            }));
-                        setIsCreated(!isCreated);
-                    }}
-                    disabled={!validTitle || !validTask}
+                    onClick={onCreateButtonHandler}
+                    disabled={!valid.validTitle || !valid.validTask}
                 >
-                    {
-                        !isCreated ?
-                            <span>Create task</span>
-                            :
-                            <React.Fragment>
-                                {onTaskCreated()}
-                            </React.Fragment>
-                    }
+                    <span>Create task</span>
+                    {isCreated ? onTaskCreated() : null}
                 </Button>
-            </WithForm>
+            </FormContainer>
         </div>
     )
 };

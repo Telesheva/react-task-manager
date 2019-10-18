@@ -3,12 +3,23 @@ import './Loader.css';
 
 const Loader = () => {
     return (
-    <div className="lds-ellipsis">
-        <div/>
-        <div/>
-        <div/>
-        <div/>
-    </div>
+        <>
+            <h3 className="lds-title">Wait a minute...</h3>
+            <div className="lds-spinner">
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+            </div>
+        </>
     )
 };
 

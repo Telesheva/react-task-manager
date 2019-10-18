@@ -1,50 +1,68 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './TaskEditor.css';
-import {Button, FormInput, FormTextarea} from 'shards-react';
-import WithForm from "../../hoc/WithForm/WithForm";
+import {Button} from 'shards-react';
+import FormContainer from "../../hoc/FormContainer/FormContainer";
 import {useDispatch, useSelector} from "react-redux";
-import {editTaskSuccess} from "../../store/actions/task";
+import {editTaskSuccess, fetchTaskById} from "../../store/actions/task";
 import moment from "moment";
+import Input from "../UI/Input/Input";
+import Textarea from "../UI/Textarea/Textarea";
+import Loader from "../UI/Loader/Loader";
 
 const TaskEditor = props => {
-    const {tasks} = useSelector(state => state.task);
-    const taskID = props.location.pathname.substr(6);
-    const currentTask = tasks.filter(el => el.id === taskID);
-
     const dispatch = useDispatch();
 
-    const [title, setTitle] = useState('');
-    const [task, setTask] = useState('');
+    const id = props.location.pathname.substr(6);
+
+    useEffect(() => {
+        dispatch(fetchTaskById(id));
+    }, [dispatch, id]);
+
+    const {task} = useSelector(state => state.task);
+    const [editTask, setTask] = useState({
+        taskTitle: '',
+        taskBody: '',
+    });
+    useEffect(() => {
+        if (task)
+            setTask({...editTask, taskTitle: task.taskTitle, taskBody: task.taskBody})
+    }, [task]);
+
 
     return (
-        <WithForm>
-            <FormInput
-                placeholder="Task Title"
-                className="edit-input"
-                defaultValue={currentTask[0].taskTitle}
-                onChange={event => setTitle(event.target.value)}
-            />
-
-            <FormTextarea
-                placeholder="Enter your task"
-                className="edit-input"
-                defaultValue={currentTask[0].task}
-                onChange={event => setTask(event.target.value)}
-            />
-            <Button
-                theme="primary"
-                className="save-btn"
-                onClick={() => dispatch(editTaskSuccess(taskID, {
-                    id: taskID,
-                    title,
-                    task,
-                    date: moment(Date.now()).format('ll')
-                }))}
-                disabled={title === '' || task === ''}
-            >
-                Save changes
-            </Button>
-        </WithForm>
+        <div className="Task-editor">
+            {task ?
+                <FormContainer>
+                    < Input
+                        placeholder="Task Title"
+                        className="edit-input"
+                        value={editTask.taskTitle}
+                        onChange={event => setTask({...editTask, taskTitle: event.target.value})}
+                        errorMessage="Task title can`t be empty!"
+                    />
+                    <Textarea
+                        placeholder="Enter your task"
+                        value={task ? editTask.taskBody : ''}
+                        onChange={event => setTask({...editTask, taskBody: event.target.value})}
+                        errorMessage="Enter your task!"
+                    />
+                    <Button
+                        theme="primary"
+                        className="save-btn"
+                        onClick={() => dispatch(editTaskSuccess({
+                            id,
+                            taskTitle: editTask.taskTitle,
+                            taskBody: editTask.taskBody,
+                            date: moment(Date.now()).format('ll')
+                        }))}
+                        disabled={editTask.taskTitle === '' || editTask.taskBody === ''}
+                    >
+                        Save changes
+                    </Button>
+                </FormContainer>
+                : <Loader/>
+            }
+        </div>
     )
 };
 

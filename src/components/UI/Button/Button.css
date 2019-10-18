@@ -3,6 +3,7 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .Button:hover {
@@ -23,4 +24,34 @@
     bottom: 40px;
     right: 50px;
     border: 1px solid #17a3f4;
+}
+
+.auth-btn {
+    color: white;
+    width: 125px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+}
+
+.login-btn {
+    background: linear-gradient(90deg, greenyellow 0%, forestgreen 100%);
+    margin-left: 50px;
+}
+
+.signup-btn {
+    background: linear-gradient(90deg, hotpink 0%, #6a3bcc 100%);
+    margin-right: 50px;
+}
+
+.auth-btn:hover {
+    opacity: .8;
+}
+
+.signup-btn:hover {
+    border: 1px #6a3bcc solid;
+}
+
+.login-btn:hover {
+    border: 1px forestgreen solid;
 }

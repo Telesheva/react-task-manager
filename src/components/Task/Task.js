@@ -10,31 +10,26 @@ import {toggleFavorites} from "../../store/actions/task";
 
 const Task = props => {
     const dispatch = useDispatch();
+    const TaskHeader = () => (
+        <div className="task-header">
+            <span className="task-title">{props.taskTitle}</span>
+                <img
+                    src={props.isFavorite ? star : outlineStar}
+                    alt="star"
+                    className="star-img"
+                    onClick={() => dispatch(toggleFavorites(props.id, !props.isFavorite))}
+                />
+            <DropdownMenu/>
+        </div>
+    );
+
     return (
         <Context.Provider value={{
             id: props.id,
             isFavorite: props.isFavorite
         }}>
             <div className="Task">
-                <div className="task-header">
-                    <span className="task-title">{props.taskTitle}</span>
-                    {props.isFavorite ?
-                        <img
-                            src={star}
-                            alt="star"
-                            className="star-img"
-                            onClick={() => dispatch(toggleFavorites(props.id, false))}
-                        />
-                        :
-                        <img
-                            src={outlineStar}
-                            alt="outline-star"
-                            className="star-img"
-                            onClick={() => dispatch(toggleFavorites(props.id, true))}
-                        />
-                    }
-                    <DropdownMenu/>
-                </div>
+                <TaskHeader/>
                 <div className="task-body">
                     <span className="card-desc">{props.task}</span>
                 </div>

@@ -9,39 +9,55 @@ import {useSelector} from "react-redux";
 
 const TaskList = () => {
     const {tasks} = useSelector(state => state.task);
+
     useEffect(() => {
-       console.log('Use Effect works!');
+        console.log('Use Effect works!');
+        console.log(tasks);
     }, []);
+
     return (
-        <div>
-            <div className="container">
-                <div className="row">
-                    {tasks.map((el, index) => {
-                        return (
-                            <Grid
-                                key={Math.random() + 20}
+        <div className="TaskList">
+            {
+                tasks.length > 0 ?
+                    <>
+                        <div className="container">
+                            <div className="row">
+                                {tasks.map((el, index) => {
+                                    return (
+                                        <Grid
+                                            key={Math.random() + 20}
+                                        >
+                                            <Task
+                                                id={el.id}
+                                                taskTitle={el.taskTitle}
+                                                task={el.taskBody}
+                                                date={el.date}
+                                                isFavorite={el.isFavorite}
+                                                key={index}
+                                            />
+                                        </Grid>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        <Link to={'/create'}>
+                            <Button
+                                type="add-task-btn"
                             >
-                                <Task
-                                    bla={el}
-                                    id={el.id}
-                                    taskTitle={el.taskTitle}
-                                    task={el.task}
-                                    date={el.date}
-                                    isFavorite={el.isFavorite}
-                                    key={index}
-                                />
-                            </Grid>
-                        )
-                    })}
-                </div>
-            </div>
-            <Link to={'/create'}>
-                <Button
-                    type="add-task-btn"
-                >
-                    <img src={plusIcon} alt="plus-icon"/>
-                </Button>
-            </Link>
+                                <img src={plusIcon} alt="plus-icon"/>
+                            </Button>
+                        </Link>
+                    </>
+                    :
+                    <h3
+                        style={{
+                            color: '#1d1195',
+                            textAlign: 'center',
+                            paddingTop: 50
+                        }}>
+                        You don't have any tasks yet ^-^
+                    </h3>
+            }
         </div>
     )
 };
