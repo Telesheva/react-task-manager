@@ -3,7 +3,7 @@ import './TaskEditor.css';
 import {Button} from 'shards-react';
 import FormContainer from "../../hoc/FormContainer/FormContainer";
 import {useDispatch, useSelector} from "react-redux";
-import {editTaskSuccess, fetchTaskById} from "../../store/actions/task";
+import {editTask, fetchTaskById} from "../../store/actions/task";
 import moment from "moment";
 import Input from "../UI/Input/Input";
 import Textarea from "../UI/Textarea/Textarea";
@@ -19,13 +19,13 @@ const TaskEditor = props => {
     }, [dispatch, id]);
 
     const {task} = useSelector(state => state.task);
-    const [editTask, setTask] = useState({
+    const [editedTask, setTask] = useState({
         taskTitle: '',
         taskBody: '',
     });
     useEffect(() => {
         if (task)
-            setTask({...editTask, taskTitle: task.taskTitle, taskBody: task.taskBody})
+            setTask({...editedTask, taskTitle: task.taskTitle, taskBody: task.taskBody})
     }, [task]);
 
 
@@ -36,26 +36,26 @@ const TaskEditor = props => {
                     < Input
                         placeholder="Task Title"
                         className="edit-input"
-                        value={editTask.taskTitle}
-                        onChange={event => setTask({...editTask, taskTitle: event.target.value})}
+                        value={editedTask.taskTitle}
+                        onChange={event => setTask({...editedTask, taskTitle: event.target.value})}
                         errorMessage="Task title can`t be empty!"
                     />
                     <Textarea
                         placeholder="Enter your task"
-                        value={task ? editTask.taskBody : ''}
-                        onChange={event => setTask({...editTask, taskBody: event.target.value})}
+                        value={task ? editedTask.taskBody : ''}
+                        onChange={event => setTask({...editedTask, taskBody: event.target.value})}
                         errorMessage="Enter your task!"
                     />
                     <Button
                         theme="primary"
                         className="save-btn"
-                        onClick={() => dispatch(editTaskSuccess({
+                        onClick={() => dispatch(editTask({
                             id,
-                            taskTitle: editTask.taskTitle,
-                            taskBody: editTask.taskBody,
+                            taskTitle: editedTask.taskTitle,
+                            taskBody: editedTask.taskBody,
                             date: moment(Date.now()).format('ll')
                         }))}
-                        disabled={editTask.taskTitle === '' || editTask.taskBody === ''}
+                        disabled={editedTask.taskTitle === '' || editedTask.taskBody === ''}
                     >
                         Save changes
                     </Button>

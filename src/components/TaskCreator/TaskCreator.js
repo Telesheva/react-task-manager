@@ -36,7 +36,7 @@ const TaskCreator = () => {
         dispatch(addTask({
             id: uuidv1(),
             ...task,
-            date: moment(Date.now()).format('ll'),
+            date: Date.now(),
             isFavorite: isClicked
         }));
         setIsCreated(!isCreated);

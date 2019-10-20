@@ -6,6 +6,7 @@ import DropdownMenu from "../UI/DropdownMenu/DropdownMenu";
 import {Context} from "../../context";
 import {useDispatch} from "react-redux";
 import {toggleFavorites} from "../../store/actions/task";
+import moment from "moment";
 
 
 const Task = props => {
@@ -34,7 +35,7 @@ const Task = props => {
                     <span className="card-desc">{props.task}</span>
                 </div>
                 <div className="task-footer">
-                    Date: <span>{props.date}</span>
+                    Date: <span>{moment(props.date).format('ll')}</span>
                 </div>
             </div>
         </Context.Provider>

@@ -28,30 +28,25 @@
 
 .auth-btn {
     color: white;
-    width: 125px;
-    height: 55px;
-    border-radius: 50%;
+    padding: 10px 30px;
+    border-radius: 5px;
     border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: 1px 1px 3px black;
 }
 
 .login-btn {
-    background: linear-gradient(90deg, greenyellow 0%, forestgreen 100%);
     margin-left: 50px;
+    background: #48cb39;
 }
 
 .signup-btn {
-    background: linear-gradient(90deg, hotpink 0%, #6a3bcc 100%);
     margin-right: 50px;
+    background: #2884f6;
 }
 
 .auth-btn:hover {
     opacity: .8;
-}
-
-.signup-btn:hover {
-    border: 1px #6a3bcc solid;
-}
-
-.login-btn:hover {
-    border: 1px forestgreen solid;
 }
