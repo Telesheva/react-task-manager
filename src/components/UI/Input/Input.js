@@ -19,6 +19,7 @@ const Input = props => {
             <label htmlFor={htmlFor}>{props.label}</label>
             <input
                 type={inputType}
+                name={props.name}
                 placeholder={props.placeholder}
                 id={htmlFor}
                 value={props.value}

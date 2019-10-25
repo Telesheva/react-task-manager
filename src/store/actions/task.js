@@ -1,63 +1,36 @@
-/*import axios from '../../axios/axios-tasks';*/
+import axios from '../../axios/axios-tasks';
 import {
-    ADD_TASK,
+    ADD_TASK_ERROR,
+    ADD_TASK_SUCCESS,
     EDIT_TASK_SUCCESS,
-    FETCH_DELETE_SUCCESS,
+    FETCH_DELETE_ERROR,
+    FETCH_TASK_ERROR,
     FETCH_TASK_SUCCESS,
     FETCH_TASKS_ERROR,
     FETCH_TASKS_START,
     FETCH_TASKS_SUCCESS,
     TOGGLE_FAVORITES_SUCCESS
 } from './actionTypes';
-import {createSelector} from "reselect";
 
 export function fetchTasks() {
     return async dispatch => {
         dispatch(fetchTasksStart());
         try {
+            const response = await axios.get('/tasks.json');
+
             const tasks = [];
-            tasks.push({
-                    id: '192938',
-                    taskTitle: 'Home',
-                    taskBody: 'Clean the room!',
-                    date: Date.now(),
-                    isFavorite: true
-                },
-                {
-                    id: '2839819884',
-                    taskTitle: 'Home',
-                    taskBody: 'Wash the dishes!',
-                    date: Date.parse('October 17, 2019 05:24:40'),
-                    isFavorite: true
-                },
-                {
-                    id: '42924920ddw',
-                    taskTitle: 'Study',
-                    taskBody: 'Do the homework!',
-                    date: Date.parse('October 10, 2019 14:55:34'),
-                    isFavorite: false
-                },
-                {
-                    id: '20938174948',
-                    taskTitle: 'Work',
-                    taskBody: 'Meeting on Saturday!',
-                    date: Date.parse('October 18, 2019 10:33:14'),
-                    isFavorite: true
-                },
-                {
-                    id: '098433123',
-                    taskTitle: 'Work',
-                    taskBody: 'Do the report!',
-                    date: Date.parse('September 28, 2019 12:05:00'),
-                    isFavorite: false
-                },
-                {
-                    id: '467890321efd',
-                    taskTitle: 'Study',
-                    taskBody: 'Ask about exam questions!',
-                    date: Date.parse('October 19, 2019 18:42:15'),
-                    isFavorite: false
-                });
+
+            Object.keys(response.data).forEach(item => {
+                const currentObj = response.data[item];
+                tasks.push({
+                    id: currentObj.id,
+                    taskTitle: currentObj.taskTitle,
+                    taskBody: currentObj.taskBody,
+                    date: currentObj.date,
+                    isFavorite: currentObj.isFavorite
+                })
+            });
+
             dispatch(fetchTasksSuccess(tasks));
         } catch (e) {
             dispatch(fetchTasksError(e));
@@ -86,10 +59,19 @@ export function fetchTasksSuccess(tasks) {
 }
 
 export function fetchTaskById(id) {
-    return async (dispatch, getState) => {
-        const tasks = getState().task.tasks;
-        const task = tasks.find(task => task.id === id);
-        dispatch(fetchTaskSuccess(task));
+    return async dispatch => {
+        try {
+            const response = await axios.get('./tasks.json');
+
+            const tasks = Object.keys(response.data).map(item => {
+                return response.data[item];
+            });
+
+            const task = tasks.find(task => task.id === id);
+            dispatch(fetchTaskSuccess(task));
+        } catch (e) {
+            dispatch(fetchTaskError(e));
+        }
     }
 }
 
@@ -100,10 +82,10 @@ export function fetchTaskSuccess(currentTask) {
     }
 }
 
-export function fetchDeleteSuccess(newTasks) {
+export function fetchTaskError(e) {
     return {
-        type: FETCH_DELETE_SUCCESS,
-        newTasks
+        type: FETCH_TASK_ERROR,
+        error: e
     }
 }
 
@@ -122,10 +104,28 @@ export function editTaskSuccess(newTasks) {
 }
 
 export function addTask(task) {
+    return async dispatch => {
+        try {
+            await axios.post('./tasks.json', task);
+            dispatch(addTaskSuccess(task));
+        } catch (e) {
+            dispatch(addTaskError(e));
+        }
+    }
+}
+
+export function addTaskSuccess(task) {
     return {
-        type: ADD_TASK,
+        type: ADD_TASK_SUCCESS,
         task
     };
+}
+
+export function addTaskError(e) {
+    return {
+        type: ADD_TASK_ERROR,
+        error: e
+    }
 }
 
 export function toggleFavorites(id, isFavorite) {
@@ -139,8 +139,32 @@ export function toggleFavorites(id, isFavorite) {
 
 export function deleteTask(id) {
     return async (dispatch, getState) => {
-        const newTasks = getState().task.tasks.filter(taskItem => taskItem.id !== id);
-        dispatch(fetchDeleteSuccess(newTasks));
+        try {
+            const response = await axios.get('./tasks.json');
+
+            const firebaseIds = [];
+            const tasks = Object.keys(response.data).map(item => {
+                if (response.data[item].id === id) {
+                    firebaseIds.push(item);
+                }
+                return response.data[item];
+            });
+
+            const task = tasks.find(task => task.id === id);
+
+            await axios.delete(`./tasks/${firebaseIds[0]}.json`, task);
+
+            dispatch(fetchTasks());
+        } catch (e) {
+            dispatch(fetchTaskError(e));
+        }
+    }
+}
+
+export function fetchDeleteError(e) {
+    return {
+        type: FETCH_DELETE_ERROR,
+        error: e
     }
 }
 

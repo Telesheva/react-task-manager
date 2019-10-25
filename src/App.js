@@ -6,11 +6,13 @@ import TaskCreator from "./components/TaskCreator/TaskCreator";
 import TaskEditor from "./components/TaskEditor/TaskEditor";
 import TaskList from "./components/TaskList/TaskList";
 import Auth from "./components/Auth/Auth";
+import {AuthProvider} from "./AuthContext";
 
 class App extends Component {
     render() {
 
         let routes = (
+            <AuthProvider>
             <Switch>
                 <Route path="/" exact component={TaskList}/>
                 <Route path="/create" component={TaskCreator}/>
@@ -18,6 +20,7 @@ class App extends Component {
                 <Route path="/edit/:id" component={TaskEditor}/>
                 <Route render={() => <h1 style={{color: 'red', textAlign: 'center', marginTop: 50}}>404 not found</h1>}/>
             </Switch>
+            </AuthProvider>
         );
 
         return (

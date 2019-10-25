@@ -6,7 +6,6 @@ import FormContainer from "../../hoc/FormContainer/FormContainer";
 import {Button} from 'shards-react';
 import {addTask} from "../../store/actions/task";
 import {useDispatch} from "react-redux";
-import moment from "moment";
 import {Redirect, withRouter} from "react-router";
 import Input from "../UI/Input/Input";
 import Textarea from "../UI/Textarea/Textarea";

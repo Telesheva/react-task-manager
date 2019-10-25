@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76ee361a-cc2d-4d96-963c-5c2a5d8e7ed4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/AuthContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/base.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navbar/Navbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TaskList/TaskList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskList/TaskList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/Button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Button/Button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Input/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/FormContainer/FormContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/FormContainer/FormContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/task.js" afterDir="false" />
@@ -119,7 +124,11 @@
       <workItem from="1569846957883" duration="2583000" />
       <workItem from="1569942607708" duration="29900000" />
       <workItem from="1570392829472" duration="2299000" />
-      <workItem from="1570879870810" duration="74809000" />
+      <workItem from="1570879870810" duration="75069000" />
+      <workItem from="1571647395468" duration="1221000" />
+      <workItem from="1571764570461" duration="6978000" />
+      <workItem from="1571863345046" duration="2528000" />
+      <workItem from="1572015291769" duration="12892000" />
     </task>
     <task id="LOCAL-00001" summary="+ normal cards, icons, alert, disabled button">
       <created>1568915961969</created>
@@ -170,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571430496136</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Tasks sorting:)">
+      <created>1571576042086</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1571576042086</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -207,6 +223,7 @@
     <MESSAGE value="fixed some warnings" />
     <MESSAGE value="added Input and Textarea Components, action fetchTaskById, changes in TaskEditor and finally validation in TaskCreator:)" />
     <MESSAGE value="deleted unnecessary function" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted unnecessary function" />
+    <MESSAGE value="Tasks sorting:)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tasks sorting:)" />
   </component>
 </project>

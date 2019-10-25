@@ -2,7 +2,8 @@ import React from 'react';
 import './Navbar.css';
 import {Link} from "react-router-dom";
 import logout from '../../../images/logout.png';
-import create from '../../../images/create.png';
+import create from '../../../images/create.png'
+import app from '../../../base';
 
 const Navbar = () => {
     return (
@@ -15,7 +16,7 @@ const Navbar = () => {
                     Create
                 </label>
                 </Link>
-                <Link to={'/'} className="logout-link">
+                <Link to={'/auth'} className="logout-link" onClick={() => app.auth().signOut()}>
                 <label className="logout-label">
                     <img src={logout} alt="logout-icon"/>
                     Log out

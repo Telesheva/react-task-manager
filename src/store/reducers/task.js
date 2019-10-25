@@ -1,10 +1,15 @@
 import {
-    ADD_TASK, EDIT_TASK_SUCCESS,
-    FETCH_DELETE_SUCCESS,
-    FETCH_TASK_SUCCESS, FETCH_TASKS_ERROR, FETCH_TASKS_START, FETCH_TASKS_SUCCESS,
+    ADD_TASK_ERROR,
+    ADD_TASK_SUCCESS,
+    EDIT_TASK_SUCCESS,
+    FETCH_DELETE_ERROR,
+    FETCH_TASK_ERROR,
+    FETCH_TASK_SUCCESS,
+    FETCH_TASKS_ERROR,
+    FETCH_TASKS_START,
+    FETCH_TASKS_SUCCESS,
     TOGGLE_FAVORITES_SUCCESS
 } from "../actions/actionTypes";
-import moment from "moment";
 
 const initialState = {
     tasks: [],
@@ -14,10 +19,14 @@ const initialState = {
 
 export default function taskReducer(state = initialState, action) {
     switch (action.type) {
-        case ADD_TASK:
+        case ADD_TASK_SUCCESS:
             return {
                 ...state,
                 tasks: [...state.tasks, action.task]
+            };
+        case ADD_TASK_ERROR:
+            return {
+              ...state, loading: false, error: action.error
             };
         case FETCH_TASKS_START:
             return {
@@ -31,9 +40,9 @@ export default function taskReducer(state = initialState, action) {
             return {
                 ...state, loading: false, error: action.error
             };
-        case FETCH_DELETE_SUCCESS:
+        case FETCH_DELETE_ERROR:
             return {
-              ...state, tasks: action.newTasks
+                ...state, loading: false, error: action.error
             };
         case TOGGLE_FAVORITES_SUCCESS:
             return {
@@ -46,6 +55,10 @@ export default function taskReducer(state = initialState, action) {
         case FETCH_TASK_SUCCESS:
             return {
                 ...state, task: action.currentTask
+            };
+        case FETCH_TASK_ERROR:
+            return {
+                ...state, loading: false, error: action.error
             };
         default:
             return state;
