@@ -11,6 +11,7 @@ import moment from "moment";
 
 const Task = props => {
     const dispatch = useDispatch();
+
     const TaskHeader = () => (
         <div className="task-header">
             <span className="task-title">{props.taskTitle}</span>

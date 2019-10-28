@@ -8,9 +8,11 @@ import moment from "moment";
 import Input from "../UI/Input/Input";
 import Textarea from "../UI/Textarea/Textarea";
 import Loader from "../UI/Loader/Loader";
+import {Redirect} from "react-router";
 
 const TaskEditor = props => {
     const dispatch = useDispatch();
+    const [isEdited, setIsEdited] = useState(false);
 
     const id = props.location.pathname.substr(6);
 
@@ -18,7 +20,11 @@ const TaskEditor = props => {
         dispatch(fetchTaskById(id));
     }, [dispatch, id]);
 
-    const {task} = useSelector(state => state.task);
+    const {task, loading, error} = useSelector(state => state.task);
+    if (error) {
+        throw new Error(error);
+    }
+
     const [editedTask, setTask] = useState({
         taskTitle: '',
         taskBody: '',
@@ -28,10 +34,23 @@ const TaskEditor = props => {
             setTask({...editedTask, taskTitle: task.taskTitle, taskBody: task.taskBody})
     }, [task]);
 
+    const onSaveButtonHandler = () => {
+        dispatch(editTask({
+            id,
+            taskTitle: editedTask.taskTitle,
+            taskBody: editedTask.taskBody,
+            date: moment(Date.now()).format('ll')
+        }));
+        setIsEdited(!isEdited);
+    };
+
+    const onTaskEdited = () => (
+        <Redirect to={'/'}/>
+    );
 
     return (
         <div className="Task-editor">
-            {task ?
+            {task && !loading ?
                 <FormContainer>
                     < Input
                         placeholder="Task Title"
@@ -49,18 +68,15 @@ const TaskEditor = props => {
                     <Button
                         theme="primary"
                         className="save-btn"
-                        onClick={() => dispatch(editTask({
-                            id,
-                            taskTitle: editedTask.taskTitle,
-                            taskBody: editedTask.taskBody,
-                            date: moment(Date.now()).format('ll')
-                        }))}
+                        onClick={onSaveButtonHandler}
                         disabled={editedTask.taskTitle === '' || editedTask.taskBody === ''}
                     >
                         Save changes
                     </Button>
+                    {isEdited ? onTaskEdited() : null}
                 </FormContainer>
-                : <Loader/>
+                :
+                    <Loader/>
             }
         </div>
     )

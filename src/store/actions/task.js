@@ -2,7 +2,7 @@ import axios from '../../axios/axios-tasks';
 import {
     ADD_TASK_ERROR,
     ADD_TASK_SUCCESS,
-    EDIT_TASK_SUCCESS,
+    EDIT_TASK_ERROR,
     FETCH_DELETE_ERROR,
     FETCH_TASK_ERROR,
     FETCH_TASK_SUCCESS,
@@ -11,6 +11,22 @@ import {
     FETCH_TASKS_SUCCESS,
     TOGGLE_FAVORITES_SUCCESS
 } from './actionTypes';
+
+const getTasks = async id => {
+    const response = await axios.get('./tasks.json');
+
+    const firebaseIds = [];
+    const tasks = Object.keys(response.data).map(item => {
+        if (response.data[item].id === id) {
+            firebaseIds.push(item);
+        }
+        return response.data[item];
+    });
+
+    return {
+        tasks, firebaseIds
+    }
+};
 
 export function fetchTasks() {
     return async dispatch => {
@@ -96,13 +112,6 @@ export function toggleFavoritesSuccess(newTasks) {
     }
 }
 
-export function editTaskSuccess(newTasks) {
-    return {
-        type: EDIT_TASK_SUCCESS,
-        newTasks
-    }
-}
-
 export function addTask(task) {
     return async dispatch => {
         try {
@@ -138,25 +147,14 @@ export function toggleFavorites(id, isFavorite) {
 }
 
 export function deleteTask(id) {
-    return async (dispatch, getState) => {
+    return async dispatch => {
         try {
-            const response = await axios.get('./tasks.json');
-
-            const firebaseIds = [];
-            const tasks = Object.keys(response.data).map(item => {
-                if (response.data[item].id === id) {
-                    firebaseIds.push(item);
-                }
-                return response.data[item];
-            });
-
+            const {tasks, firebaseIds} = await getTasks(id);
             const task = tasks.find(task => task.id === id);
-
             await axios.delete(`./tasks/${firebaseIds[0]}.json`, task);
-
             dispatch(fetchTasks());
         } catch (e) {
-            dispatch(fetchTaskError(e));
+            dispatch(fetchDeleteError(e));
         }
     }
 }
@@ -169,12 +167,29 @@ export function fetchDeleteError(e) {
 }
 
 export function editTask(editedTask) {
-    return async (dispatch, getState) => {
-        const newTasks = getState().task.tasks;
-        let task = newTasks.find(task => task.id === editedTask.id);
-        task = editedTask;
-        console.log(task);
-        dispatch(editTaskSuccess(newTasks));
+    return async dispatch => {
+        try {
+           const {tasks, firebaseIds} = await getTasks(editedTask.id);
+
+            let task = tasks.find(task => task.id === editedTask.id);
+            task = editedTask;
+
+            await axios.patch(`./tasks/${firebaseIds[0]}.json`, {
+                taskTitle: task.taskTitle,
+                taskBody: task.taskBody
+            });
+
+            dispatch(fetchTasks());
+        } catch (e) {
+            dispatch(editTaskError(e));
+        }
     }
 }
 
+export function editTaskError(e) {
+    console.log(e);
+    return {
+        type:  EDIT_TASK_ERROR,
+        error: e
+    }
+}

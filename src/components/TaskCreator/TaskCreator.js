@@ -5,7 +5,7 @@ import './TaskCreator.css';
 import FormContainer from "../../hoc/FormContainer/FormContainer";
 import {Button} from 'shards-react';
 import {addTask} from "../../store/actions/task";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Redirect, withRouter} from "react-router";
 import Input from "../UI/Input/Input";
 import Textarea from "../UI/Textarea/Textarea";
@@ -13,6 +13,11 @@ import Textarea from "../UI/Textarea/Textarea";
 const TaskCreator = () => {
     const [isCreated, setIsCreated] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
+
+    const {error} = useSelector(state => state.task);
+    if (error) {
+        throw new Error(error);
+    }
 
     const dispatch = useDispatch();
 

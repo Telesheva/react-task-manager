@@ -12,6 +12,10 @@ import Loader from "../UI/Loader/Loader";
 
 const TaskList = () => {
     const dispatch = useDispatch();
+    const {tasks, loading, error} = useSelector(state => state.task);
+    if (error) {
+        throw new Error(error);
+    }
 
     const qsort = arr => {
         if (arr.length < 2) {
@@ -27,8 +31,6 @@ const TaskList = () => {
     useEffect(() => {
         dispatch(fetchTasks());
     }, [dispatch]);
-
-    const {tasks, loading} = useSelector(state => state.task);
 
     const sortTasks = createSelector(
         [fetchTasks],

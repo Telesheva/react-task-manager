@@ -1,7 +1,7 @@
 import {
     ADD_TASK_ERROR,
     ADD_TASK_SUCCESS,
-    EDIT_TASK_SUCCESS,
+    EDIT_TASK_ERROR,
     FETCH_DELETE_ERROR,
     FETCH_TASK_ERROR,
     FETCH_TASK_SUCCESS,
@@ -14,7 +14,8 @@ import {
 const initialState = {
     tasks: [],
     task: null,
-    loading: false
+    loading: false,
+    error: ''
 };
 
 export default function taskReducer(state = initialState, action) {
@@ -26,7 +27,7 @@ export default function taskReducer(state = initialState, action) {
             };
         case ADD_TASK_ERROR:
             return {
-              ...state, loading: false, error: action.error
+                ...state, loading: false, error: action.error
             };
         case FETCH_TASKS_START:
             return {
@@ -34,7 +35,7 @@ export default function taskReducer(state = initialState, action) {
             };
         case FETCH_TASKS_SUCCESS:
             return {
-              ...state, loading: false, tasks: action.tasks
+                ...state, loading: false, tasks: action.tasks
             };
         case FETCH_TASKS_ERROR:
             return {
@@ -48,9 +49,9 @@ export default function taskReducer(state = initialState, action) {
             return {
                 ...state, tasks: action.newTasks
             };
-        case EDIT_TASK_SUCCESS:
+        case EDIT_TASK_ERROR:
             return {
-                ...state, tasks: action.newTasks
+                ...state, loading: false, error: action.error
             };
         case FETCH_TASK_SUCCESS:
             return {
