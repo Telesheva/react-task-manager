@@ -28,7 +28,7 @@ const getTasks = async id => {
     }
 };
 
-export function fetchTasks() {
+export function fetchTasks(email) {
     return async dispatch => {
         dispatch(fetchTasksStart());
         try {
@@ -36,16 +36,21 @@ export function fetchTasks() {
 
             const tasks = [];
 
-            Object.keys(response.data).forEach(item => {
-                const currentObj = response.data[item];
-                tasks.push({
-                    id: currentObj.id,
-                    taskTitle: currentObj.taskTitle,
-                    taskBody: currentObj.taskBody,
-                    date: currentObj.date,
-                    isFavorite: currentObj.isFavorite
-                })
-            });
+            if (response.data) {
+                Object.keys(response.data).forEach(item => {
+                    const currentObj = response.data[item];
+                    if (currentObj.user === email) {
+                        tasks.push({
+                            id: currentObj.id,
+                            taskTitle: currentObj.taskTitle,
+                            taskBody: currentObj.taskBody,
+                            date: currentObj.date,
+                            isFavorite: currentObj.isFavorite,
+                            user: currentObj.user
+                        })
+                    }
+                });
+            }
 
             dispatch(fetchTasksSuccess(tasks));
         } catch (e) {
@@ -152,7 +157,7 @@ export function deleteTask(id) {
             const {tasks, firebaseIds} = await getTasks(id);
             const task = tasks.find(task => task.id === id);
             await axios.delete(`./tasks/${firebaseIds[0]}.json`, task);
-            dispatch(fetchTasks());
+            dispatch(fetchTasks(task.user));
         } catch (e) {
             dispatch(fetchDeleteError(e));
         }
@@ -179,15 +184,24 @@ export function editTask(editedTask) {
                 taskBody: task.taskBody
             });
 
-            dispatch(fetchTasks());
+            dispatch(fetchTasks(task.user));
         } catch (e) {
             dispatch(editTaskError(e));
         }
     }
 }
 
+/*
+export function editTaskSuccess(tasks) {
+    return {
+        type:  EDIT_TASK_SUCCESS,
+        tasks
+    }
+}
+*/
+
+
 export function editTaskError(e) {
-    console.log(e);
     return {
         type:  EDIT_TASK_ERROR,
         error: e

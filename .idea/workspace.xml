@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76ee361a-cc2d-4d96-963c-5c2a5d8e7ed4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/ErrorBoundary/ErrorBoundary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskCreator/TaskCreator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskEditor/TaskEditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskList/TaskList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskList/TaskList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/Input.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Input/Input.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Input/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ErrorBoundary/ErrorBoundary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ErrorBoundary/ErrorBoundary.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hoc/Layout/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/Layout/Layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +128,7 @@
       <workItem from="1571647395468" duration="1221000" />
       <workItem from="1571764570461" duration="6978000" />
       <workItem from="1571863345046" duration="2528000" />
-      <workItem from="1572015291769" duration="25984000" />
+      <workItem from="1572015291769" duration="47963000" />
     </task>
     <task id="LOCAL-00001" summary="+ normal cards, icons, alert, disabled button">
       <created>1568915961969</created>
@@ -193,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572036868282</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="+ refactored editing tasks and error handling">
+      <created>1572259862218</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1572259862218</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -232,6 +239,7 @@
     <MESSAGE value="deleted unnecessary function" />
     <MESSAGE value="Tasks sorting:)" />
     <MESSAGE value="+ firebase authorization and refactored actions/reducers, almost refactored..)" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ firebase authorization and refactored actions/reducers, almost refactored..)" />
+    <MESSAGE value="+ refactored editing tasks and error handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ refactored editing tasks and error handling" />
   </component>
 </project>

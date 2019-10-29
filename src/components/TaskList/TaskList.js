@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Task from "../../components/Task/Task";
 import './TaskList.css';
 import Grid from "../UI/Grid/Grid";
@@ -9,10 +9,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {createSelector} from 'reselect';
 import {fetchTasks} from "../../store/actions/task";
 import Loader from "../UI/Loader/Loader";
+import {AuthContext} from "../../AuthContext";
 
 const TaskList = () => {
     const dispatch = useDispatch();
     const {tasks, loading, error} = useSelector(state => state.task);
+    const {currentUser} = useContext(AuthContext);
+
     if (error) {
         throw new Error(error);
     }
@@ -29,7 +32,7 @@ const TaskList = () => {
     };
 
     useEffect(() => {
-        dispatch(fetchTasks());
+        dispatch(fetchTasks(currentUser.email));
     }, [dispatch]);
 
     const sortTasks = createSelector(
@@ -57,53 +60,58 @@ const TaskList = () => {
     });
     sortedTasks = [...favorites, ...sortedTasks];
 
+    const renderPlusBtn = () => (
+        <Link to={'/create'}>
+            < Button
+                type="add-task-btn"
+            >
+                <img src={plusIcon} alt="plus-icon"/>
+            </Button>
+        </Link>
+    );
+
     return (
         <div className="TaskList">
             {
                 !loading ?
                     <>
-                        <div className="container">
-                            <div className="row">
-                                {sortedTasks.map((el, index) => {
-                                    return (
-                                        <Grid
-                                            key={Math.random() + 20}
-                                        >
-                                            <Task
-                                                id={el.id}
-                                                taskTitle={el.taskTitle}
-                                                task={el.taskBody}
-                                                date={el.date}
-                                                isFavorite={el.isFavorite}
-                                                key={index}
-                                            />
-                                        </Grid>
-                                    )
-                                })}
+                        {tasks.length > 0 ?
+                            <div className="container">
+                                <div className="row">
+                                    {sortedTasks.map((el, index) => {
+                                        return (
+                                            <Grid
+                                                key={Math.random() + 20}
+                                            >
+                                                <Task
+                                                    id={el.id}
+                                                    taskTitle={el.taskTitle}
+                                                    task={el.taskBody}
+                                                    date={el.date}
+                                                    isFavorite={el.isFavorite}
+                                                    key={index}
+                                                />
+                                            </Grid>
+                                        )
+                                    })}
+                                </div>
+                                {renderPlusBtn()}
                             </div>
-                        </div>
-                        < Link to={'/create'}>
-                            < Button
-                                type="add-task-btn"
-                            >
-                                <img src={plusIcon} alt="plus-icon"/>
-                            </Button>
-                        </Link>
+                            :
+                            <>
+                                <h3
+                                    style={{
+                                        color: '#1d1195',
+                                        textAlign: 'center',
+                                        paddingTop: 50
+                                    }}>
+                                    You don't have any tasks yet ^-^
+                                </h3>
+                                {renderPlusBtn()}
+                            </>
+                        }
                     </>
-                    :
-                    <>
-                        <Loader/>
-                        {tasks.length === 0 && !loading ?
-                            <h3
-                                style={{
-                                    color: '#1d1195',
-                                    textAlign: 'center',
-                                    paddingTop: 50
-                                }}>
-                                You don't have any tasks yet ^-^
-                            </h3> : null}
-                    </>
-            }
+                    : <Loader/>}
         </div>
     )
 };

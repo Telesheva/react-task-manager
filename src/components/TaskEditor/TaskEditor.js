@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './TaskEditor.css';
 import {Button} from 'shards-react';
 import FormContainer from "../../hoc/FormContainer/FormContainer";
@@ -9,11 +9,13 @@ import Input from "../UI/Input/Input";
 import Textarea from "../UI/Textarea/Textarea";
 import Loader from "../UI/Loader/Loader";
 import {Redirect} from "react-router";
+import {AuthContext} from "../../AuthContext";
+
 
 const TaskEditor = props => {
     const dispatch = useDispatch();
     const [isEdited, setIsEdited] = useState(false);
-
+    const { currentUser } = useContext(AuthContext);
     const id = props.location.pathname.substr(6);
 
     useEffect(() => {
@@ -21,13 +23,13 @@ const TaskEditor = props => {
     }, [dispatch, id]);
 
     const {task, loading, error} = useSelector(state => state.task);
-    if (error) {
+    if (error || !currentUser) {
         throw new Error(error);
     }
 
     const [editedTask, setTask] = useState({
         taskTitle: '',
-        taskBody: '',
+        taskBody: ''
     });
     useEffect(() => {
         if (task)
@@ -39,7 +41,8 @@ const TaskEditor = props => {
             id,
             taskTitle: editedTask.taskTitle,
             taskBody: editedTask.taskBody,
-            date: moment(Date.now()).format('ll')
+            date: moment(Date.now()).format('ll'),
+            user: currentUser.email
         }));
         setIsEdited(!isEdited);
     };

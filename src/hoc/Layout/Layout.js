@@ -8,9 +8,9 @@ const Layout = props => {
         <div className="Layout">
             <Navbar/>
             <main>
-                <ErrorBoundary>
-                {props.children}
-                </ErrorBoundary>
+                    <ErrorBoundary>
+                        {props.children}
+                    </ErrorBoundary>
             </main>
         </div>
     )

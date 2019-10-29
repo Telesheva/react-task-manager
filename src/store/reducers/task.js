@@ -49,6 +49,10 @@ export default function taskReducer(state = initialState, action) {
             return {
                 ...state, tasks: action.newTasks
             };
+      /*  case EDIT_TASK_SUCCESS:
+            return {
+                ...state, loading: false, task: action.task
+            };*/
         case EDIT_TASK_ERROR:
             return {
                 ...state, loading: false, error: action.error

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import uuidv1 from 'uuid/v1';
 import is from 'is_js';
 import './TaskCreator.css';
@@ -9,28 +9,27 @@ import {useDispatch, useSelector} from "react-redux";
 import {Redirect, withRouter} from "react-router";
 import Input from "../UI/Input/Input";
 import Textarea from "../UI/Textarea/Textarea";
+import {AuthContext} from "../../AuthContext";
 
 const TaskCreator = () => {
     const [isCreated, setIsCreated] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
-
     const {error} = useSelector(state => state.task);
-    if (error) {
-        throw new Error(error);
-    }
-
+    const { currentUser } = useContext(AuthContext);
     const dispatch = useDispatch();
-
     const [task, setTask] = useState({
         taskTitle: '',
         taskBody: '',
         isFavorite: false
     });
-
     const [valid, setValid] = useState({
         validTitle: false,
         validTask: false
     });
+
+    if (error || !currentUser) {
+        throw new Error(error);
+    }
 
     const onTaskCreated = () => (
         <Redirect to={'/'}/>
@@ -41,7 +40,8 @@ const TaskCreator = () => {
             id: uuidv1(),
             ...task,
             date: Date.now(),
-            isFavorite: isClicked
+            isFavorite: isClicked,
+            user: currentUser.email
         }));
         setIsCreated(!isCreated);
     };

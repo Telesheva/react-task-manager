@@ -3,6 +3,7 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
+    border-color: purple;
 }
 
 .Input label {
@@ -27,7 +28,7 @@
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.Input input:focus {
+.Input input.valid:focus {
     color: #495057;
     background-color: #fff;
     border-color: #80bdff;
@@ -43,6 +44,11 @@
 
 .Input.invalid label {
     color: red;
+}
+
+.invalid {
+    box-shadow: 0 0 5px 0.5px red;
+    border-color: darkred;
 }
 
 .edit-input {
